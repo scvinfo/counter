@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment    
+metadata:              
+  name: counterapp-k8s
+  namespace: counterapp
+spec:                
+  selector:         
+    matchLabels:
+      app: counterapp-k8s
+  replicas: 5
+  template:
+    metadata:
+      labels:        
+        app: counterapp-k8s
+    spec:
+      containers:
+        - name: counterapp-k8s
+          image: counterapp-k8s:1.0
+          ports:
+            - containerPort: 8054
+

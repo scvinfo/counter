@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: counterapp-k8s
+  namespace: counterapp
+
+  labels:
+    name: counterapp-k8s
+spec:
+  ports:
+    - nodePort: 30165
+      port: 8054
+      targetPort: 8054
+      protocol: TCP
+  selector:           
+    app: counterapp-k8s
+  type: NodePort       
+
